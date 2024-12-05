@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorRuntimeJavaType;
 
 /**
  * sysdate() function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class SysDateFunction extends AbstractFunction {
 

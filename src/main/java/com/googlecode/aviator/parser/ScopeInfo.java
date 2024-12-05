@@ -5,7 +5,7 @@ import com.googlecode.aviator.exception.ExpressionSyntaxErrorException;
 
 /**
  * Lexical scope info
- * 
+ *
  * @author dennis(killme2008@gmail.com)
  *
  */

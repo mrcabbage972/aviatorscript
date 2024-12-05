@@ -2,7 +2,7 @@ package com.googlecode.aviator.runtime.function.seq;
 
 /**
  * seq.max function to find the largest element in sequence.
- * 
+ *
  * @since 4.1.2
  * @author dennis
  *

@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * math.log10(d) function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class MathLog10Function extends AbstractFunction {
 

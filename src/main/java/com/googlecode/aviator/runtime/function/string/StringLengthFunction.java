@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * string.length(s) function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class StringLengthFunction extends AbstractFunction {
 

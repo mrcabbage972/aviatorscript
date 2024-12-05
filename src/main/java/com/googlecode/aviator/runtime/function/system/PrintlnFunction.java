@@ -26,9 +26,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * println(obj) function to print object with newline
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class PrintlnFunction extends AbstractFunction {
 

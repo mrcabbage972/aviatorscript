@@ -5,9 +5,9 @@ import java.util.LinkedHashMap;
 
 /**
  * Thread-safe LRU map
- * 
+ *
  * @author apple
- * 
+ *
  * @param <K>
  * @param <V>
  */

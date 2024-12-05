@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * math.tan(d) function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class MathTanFunction extends AbstractFunction {
 

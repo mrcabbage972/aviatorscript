@@ -86,7 +86,7 @@ public class SymbolTable implements Serializable {
 
   /**
    * Try to reserve key word, return the reserved variable if success, otherwise return itself.
-   * 
+   *
    * @param var
    * @return
    */

@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * math.sqrt(d) function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class MathSqrtFunction extends AbstractFunction {
 

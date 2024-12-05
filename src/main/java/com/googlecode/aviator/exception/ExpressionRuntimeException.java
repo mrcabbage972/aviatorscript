@@ -17,9 +17,9 @@ package com.googlecode.aviator.exception;
 
 /**
  * Expression runtime exception
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class ExpressionRuntimeException extends RuntimeException {
   static final long serialVersionUID = -1;

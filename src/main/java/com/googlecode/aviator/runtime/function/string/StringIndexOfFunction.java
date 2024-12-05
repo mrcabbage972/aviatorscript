@@ -9,10 +9,10 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * String.indexOf function
- * 
+ *
  * @author dennis(killme2008@gmail.com)
  * @Date 2011-7-13
- * 
+ *
  */
 public class StringIndexOfFunction extends AbstractFunction {
 
