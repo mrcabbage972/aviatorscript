@@ -10,9 +10,9 @@ import com.googlecode.aviator.runtime.type.AviatorRuntimeJavaType;
 
 /**
  * string.split function
- * 
+ *
  * @author dennis(killme2008@gmail.com)
- * 
+ *
  */
 public class StringSplitFunction extends AbstractFunction {
 

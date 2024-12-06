@@ -6,7 +6,7 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * identity function return the argument itself.
- * 
+ *
  * @author dennis
  *
  */

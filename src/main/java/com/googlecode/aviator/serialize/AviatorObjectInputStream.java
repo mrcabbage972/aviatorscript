@@ -27,7 +27,7 @@ import com.googlecode.aviator.utils.Reflector;
 /**
  * A special ObjectInputStream that loads a class based on the AvaitorClassLoader rather than the
  * system default.
- * 
+ *
  * @since 5.3.4
  * @author dennis
  *

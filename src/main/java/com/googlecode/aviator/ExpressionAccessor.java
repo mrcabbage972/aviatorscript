@@ -23,7 +23,7 @@ import com.googlecode.aviator.utils.Env;
 
 /**
  * Base expression default methods accessor
- * 
+ *
  * @author dennis
  *
  */

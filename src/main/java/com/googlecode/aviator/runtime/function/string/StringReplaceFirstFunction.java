@@ -9,9 +9,9 @@ import com.googlecode.aviator.runtime.type.AviatorString;
 
 /**
  * string.replace_first function
- * 
+ *
  * @author dennis(killme2008@gmail.com)
- * 
+ *
  */
 public class StringReplaceFirstFunction extends AbstractFunction {
 

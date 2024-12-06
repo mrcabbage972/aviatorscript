@@ -12,9 +12,9 @@ import com.googlecode.aviator.runtime.type.AviatorRuntimeJavaType;
 
 /**
  * string_to_date function
- * 
+ *
  * @author dennis(killme2008@gmail.com)
- * 
+ *
  */
 public class String2DateFunction extends AbstractFunction {
 

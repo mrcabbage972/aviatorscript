@@ -27,9 +27,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * rand() function to generate random double value
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class RandomFunction extends AbstractFunction {
 
