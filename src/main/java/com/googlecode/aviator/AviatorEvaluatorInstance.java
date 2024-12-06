@@ -243,11 +243,11 @@ public final class AviatorEvaluatorInstance {
 
   /**
    * Create an ObjectInputStream from an input stream for deserialize an expression.
-   * 
+   *
    * @since 5.3.4
    * @return the stream
    * @throws IOException
-   * 
+   *
    */
   public ObjectInputStream newObjectInputStream(InputStream in) throws IOException {
     ensureEnableSerializableOption();
@@ -262,7 +262,7 @@ public final class AviatorEvaluatorInstance {
 
   /**
    * Create an ObjectOutputStream to serialize an expression.
-   * 
+   *
    * @since 5.3.4
    * @return
    * @throws IOException
@@ -460,12 +460,12 @@ public final class AviatorEvaluatorInstance {
    * timeout.
    * <li>
    * </ul>
-   * 
+   *
    * For more information on security, please refer to the
    * <a href="https://www.yuque.com/boyan-avfmj/aviatorscript/ou23gy#elOSu">documentation</a>
-   * 
+   *
    * @since 5.4.3
-   * 
+   *
    */
   public void enableSandboxMode() {
     disableFeature(Feature.Module);

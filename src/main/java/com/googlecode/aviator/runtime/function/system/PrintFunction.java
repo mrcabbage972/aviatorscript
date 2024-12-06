@@ -26,9 +26,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * println(obj) function to print object
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class PrintFunction extends AbstractFunction {
 

@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * From user's issue report https://github.com/killme2008/aviator/issues/12
- * 
+ *
  * @author dennis
  *
  */

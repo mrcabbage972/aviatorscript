@@ -2,7 +2,7 @@ package com.googlecode.aviator.runtime.function.system;
 
 /**
  * min function to find the smallest element in arguments.
- * 
+ *
  * @author dennis
  *
  */

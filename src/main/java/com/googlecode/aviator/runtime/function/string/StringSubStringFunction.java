@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorString;
 
 /**
  * string.substring(s1,s2) function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class StringSubStringFunction extends AbstractFunction {
 

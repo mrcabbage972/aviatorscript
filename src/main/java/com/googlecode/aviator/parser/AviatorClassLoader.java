@@ -17,9 +17,9 @@ package com.googlecode.aviator.parser;
 
 /**
  * Aviator classloader to define class
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class AviatorClassLoader extends ClassLoader {
 

@@ -92,7 +92,7 @@ public interface Expression extends Serializable {
   /**
    * Returns the function names in the expression when using AviatorEvaluator.EVAL mode, otherwise
    * returns an empty list.
-   * 
+   *
    * @since 5.4.2
    * @return the function name list
    */

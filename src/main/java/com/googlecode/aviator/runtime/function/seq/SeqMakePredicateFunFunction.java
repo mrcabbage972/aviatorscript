@@ -24,9 +24,9 @@ import java.util.Map;
 
 /**
  * Function to make predicate for filter function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class SeqMakePredicateFunFunction extends AbstractFunction {
 
