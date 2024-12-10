@@ -8,7 +8,7 @@ import com.googlecode.aviator.Expression;
 public class CompileExample {
   public static void main(String[] args) {
     String expression = "a-(b-c)>100";
-    // 编译表达式
+    // Compile expression
     Expression compiledExp = AviatorEvaluator.compile(expression);
 
     Map<String, Object> env = new HashMap<String, Object>();
@@ -16,7 +16,7 @@ public class CompileExample {
     env.put("b", 45);
     env.put("c", -199.100);
 
-    // 执行表达式
+    // Execute expression
     Boolean result = (Boolean) compiledExp.execute(env);
     System.out.println(result);
   }

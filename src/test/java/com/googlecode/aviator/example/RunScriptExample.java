@@ -16,7 +16,7 @@ public class RunScriptExample {
     // Enable java method invocation by reflection.
     AviatorEvaluator.getInstance()
         .setFunctionMissing(JavaMethodReflectionFunctionMissing.getInstance());
-    // You can trry to test every script in examples folder by changing the file name.
+    // You can try to test every script in examples folder by changing the file name.\n
     Expression exp = AviatorEvaluator.getInstance().compileScript("examples/hello.av");
 
     exp.execute();

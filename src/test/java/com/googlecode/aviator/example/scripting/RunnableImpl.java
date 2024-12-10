@@ -17,7 +17,7 @@ public class RunnableImpl {
 
     Invocable inv = (Invocable) engine;
 
-    // get Runnable interface object from engine. This interface methods
+    // Get Runnable interface object from engine. This interface methods
     // are implemented by script functions with the matching name.
     Runnable r = inv.getInterface(Runnable.class);
 

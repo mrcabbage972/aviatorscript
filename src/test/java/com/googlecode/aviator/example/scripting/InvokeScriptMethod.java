@@ -12,7 +12,7 @@ public class InvokeScriptMethod {
     // AviatorScript code in a String. This code defines a script object 'obj'
     // with one method called 'hello'.
     String script =
-        "let obj = seq.map(); obj.hello = lambda(name) -> print('Hello, ' + name); end;";
+    // Evaluate script
     // evaluate script
     engine.eval(script);
 
@@ -28,4 +28,3 @@ public class InvokeScriptMethod {
     inv.invokeMethod(obj, "hello", "Script Method !!");
   }
 }
-

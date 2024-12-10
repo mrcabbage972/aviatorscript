@@ -8,17 +8,17 @@ public class RunnableImplObject {
   public static void main(final String[] args) throws Exception {
     ScriptEngineManager manager = new ScriptEngineManager();
     ScriptEngine engine = manager.getEngineByName("AviatorScript");
-
-    // AviatorScript code in a String
+    ScriptEngineManager manager = new ScriptEngineManager();
+    ScriptEngine engine = manager.getEngineByName("AviatorScript");
     String script =
         "let obj = seq.map(); obj.run = lambda() -> println('run method called'); end; ";
-
+    String script =
+        "let obj = seq.map(); obj.run = lambda() -> println('run method called'); end; ";
     // evaluate script
     engine.eval(script);
 
     // get script object on which we want to implement the interface with
     Object obj = engine.get("obj");
-
     Invocable inv = (Invocable) engine;
 
     // get Runnable interface object from engine. This interface methods

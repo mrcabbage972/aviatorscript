@@ -41,7 +41,7 @@ public class AviatorObjectInputStream extends ObjectInputStream {
       throws IOException {
     super(in);
     this.classLoader = instance.getAviatorClassLoader(true);
-    this.instance = instance;
+            this.instance = instance;
     this.enableResolveObject(true);
   }
 

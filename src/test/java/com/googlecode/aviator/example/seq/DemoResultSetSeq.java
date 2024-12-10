@@ -2,8 +2,8 @@ package com.googlecode.aviator.example.seq;
 
 import java.sql.ResultSet;
 import org.mockito.Mockito;
-import com.googlecode.aviator.AviatorEvaluator;
-import com.googlecode.aviator.Expression;
+import java.sql.ResultSet;
+import org.mockito.Mockito;
 
 public class DemoResultSetSeq {
 
@@ -17,6 +17,5 @@ public class DemoResultSetSeq {
     // Use it in aviator
     Expression exp = AviatorEvaluator.getInstance().compileScript("examples/result_set_seq.av");
     exp.execute(exp.newEnv("results", new ResultSetSequence(resultSet)));
-
   }
 }

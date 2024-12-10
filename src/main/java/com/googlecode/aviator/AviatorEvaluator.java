@@ -310,7 +310,7 @@ public final class AviatorEvaluator {
   public static AviatorClassLoader getAviatorClassLoader(final boolean cached) {
     return getInstance().getAviatorClassLoader(cached);
   }
-
+   * the function name can be renamed by {@link Function} annotation. And it's not thread-safe.
   /**
    *
    * @see AviatorEvaluatorInstance#addInstanceFunctions(String, Class)
@@ -327,8 +327,7 @@ public final class AviatorEvaluator {
    */
   public static List<String> addStaticFunctions(final String namespace, final Class<?> clazz)
       throws IllegalAccessException, NoSuchMethodException {
-    return getInstance().addStaticFunctions(namespace, clazz);
-  }
+      throws IllegalAccessException, NoSuchMethodException {\n-    return getInstance().addStaticFunctions(namespace, clazz, true);\n+    return getInstance().addInstanceFunctions(namespace, clazz, true);\n  }\n\n  /**\n@@ -530,7 +530,7 @@
 
   /**
    *

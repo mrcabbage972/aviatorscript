@@ -167,27 +167,26 @@ fn calculate(s) {
 
   for top in s {
     if top.type == NUMBER {
-      push(operands, top.val);
+      operands.push(top.val);
     } elsif top.type == EOF {
       break;
     } else {
       assert(top.type == OP);
 
       if top == OP_NEG {
-        let arg = pop(operands);
-        push(operands,  -arg);
+        operands.push(-operands.pop());
       } else {
-        let arg2 = pop(operands);
-        let arg1 = pop(operands);
+        let arg2 = operands.pop();
+        let arg1 = operands.pop();
 
         if top == OP_ADD {
-          push(operands, arg1 + arg2);
+          operands.push(arg1 + arg2);
         } elsif top == OP_SUB {
-          push(operands, arg1 - arg2);
+          operands.push(arg1 - arg2);
         } elsif top == OP_MULTI {
-          push(operands, arg1 * arg2);
+          operands.push(arg1 * arg2);
         } else {
-          push(operands, arg1 / arg2);
+          operands.push(arg1 / arg2);
         }
       }
     }
@@ -195,8 +194,8 @@ fn calculate(s) {
 
   if is_empty(operands) {
     return nil;
-  } else {
-    return pop(operands);
+  }
+  return operands.pop();
   }
 }
 

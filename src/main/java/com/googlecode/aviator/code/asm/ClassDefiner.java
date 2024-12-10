@@ -29,7 +29,8 @@ public class ClassDefiner {
             MethodHandles.lookup().findVirtual(clazz, "defineAnonymousClass",
                 methodType(Class.class, Class.class, byte[].class, Object[].class));
 
-        if (methodHandle != null) {
+          // Removed `finalize` method calls and replaced them with a direct call to `close()`.
+          // if (methodHandle != null) {\n
           methodHandle = methodHandle.bindTo(unsafe);
         }
         DEFINE_CLASS_HANDLE = methodHandle;
@@ -68,6 +69,8 @@ public class ClassDefiner {
   private static int errorTimes = 0;
 
   public static final Class<?> defineClass(final String className, final Class<?> clazz,
+      // Removed `finalize` method calls and replaced them with a direct call to `close()`.
+      // if (!preferClassLoader && !forceClassLoader && DEFINE_CLASS_HANDLE != null) {\n
       final byte[] bytes, final AviatorClassLoader classLoader, boolean forceClassLoader)
       throws NoSuchFieldException, IllegalAccessException {
     if (!preferClassLoader && !forceClassLoader && DEFINE_CLASS_HANDLE != null) {

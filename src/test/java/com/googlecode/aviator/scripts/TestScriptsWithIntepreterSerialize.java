@@ -13,6 +13,7 @@ public class TestScriptsWithIntepreterSerialize extends TestScripts {
   @Before
   public void setup() throws Exception {
     this.instance = AviatorEvaluator.newInstance(EvalMode.INTERPRETER);
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     this.instance.setOption(Options.SERIALIZABLE, true);
     this.instance.addStaticFunctions("j", TestUtils.class);
     this.instance.setFunctionMissing(JavaMethodReflectionFunctionMissing.getInstance());

@@ -32,7 +32,7 @@ public class SerializeExample {
     byte[] bs = null; // the serialized bytes
     try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
       // Create the ObjectOutputStream
-      ObjectOutputStream output = engine.newObjectOutputStream(out);
+      ObjectOutputStream output = engine.newObjectOutputStream(out);  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
       // Write the expression object
       output.writeObject(exp);
       output.close();

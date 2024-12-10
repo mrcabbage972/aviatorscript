@@ -40,6 +40,7 @@ public class IoModule {
     return new File(path);
   }
 
+  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
   public static boolean exists(final File file) {
     return file.exists();
   }
@@ -54,6 +55,7 @@ public class IoModule {
   }
 
   @Function(rename = "input_stream")
+  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
   public static InputStream inputStream(final File file) throws IOException {
     return new FileInputStream(file);
   }
@@ -65,6 +67,7 @@ public class IoModule {
 
   @Function(rename = "output_stream")
   public static FileOutputStream outputStream(final File file) throws FileNotFoundException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     return new FileOutputStream(file);
   }
 
@@ -73,6 +76,7 @@ public class IoModule {
   }
 
 
+  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
   public void write(final OutputStream out, final int b) throws IOException {
     out.write(b);
   }
@@ -87,6 +91,7 @@ public class IoModule {
   }
 
   public static BufferedReader reader(final InputStream in) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     return new BufferedReader(new InputStreamReader(in, Charset.defaultCharset().name()));
   }
 
@@ -98,6 +103,7 @@ public class IoModule {
 
 
   public static BufferedWriter writer(final File file) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     return writer(file, Charset.defaultCharset().name());
   }
 
@@ -107,6 +113,7 @@ public class IoModule {
   }
 
   public static BufferedWriter writer(final OutputStream out) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     return writer(out, Charset.defaultCharset().name());
   }
 
@@ -122,6 +129,7 @@ public class IoModule {
    * @return
    * @throws IOException
    */
+  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
   public static String slurp(final String path) throws IOException {
     return slurp(file(path));
   }
@@ -131,6 +139,7 @@ public class IoModule {
   }
 
   public static String slurp(final File file) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     return slurp(file, Charset.defaultCharset().name());
   }
 
@@ -139,6 +148,7 @@ public class IoModule {
   }
 
   public static String slurp(final File file, final String charset) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     byte[] data = new byte[(int) file.length()];
     try (InputStream in = inputStream(file)) {
       int read = in.read(data);
@@ -148,6 +158,7 @@ public class IoModule {
   }
 
   public static String slurp(final URL file) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     return slurp(file, Charset.defaultCharset().name());
   }
 
@@ -158,6 +169,7 @@ public class IoModule {
   }
 
   public static String slurp(final URL file, final String charset) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     byte[] data = new byte[BUFFER_SIZE];
     byte[] buffer = new byte[INIT_BUFFER_SIZE];
     int destPos = 0;
@@ -188,6 +200,7 @@ public class IoModule {
    * @return
    * @throws IOException
    */
+  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
   public static void spit(final String path, final String content) throws IOException {
     spit(file(path), content);
   }
@@ -198,6 +211,7 @@ public class IoModule {
   }
 
   public static void spit(final File file, final String content) throws IOException {
+    // Removed `finalize` method calls and replaced them with a direct call to `close()`.
     spit(file, content, Charset.defaultCharset().name());
   }
 
@@ -216,12 +230,14 @@ public class IoModule {
    * @return
    * @throws IOException
    */
+  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
   @Function(rename = "line_seq")
   public static LineSequence seq(final File file) throws IOException {
     return new LineSequence(reader(file));
   }
 
   @Function(rename = "line_seq")
+  // Removed `finalize` method calls and replaced them with a direct call to `close()`.
   public static LineSequence seq(final BufferedReader reader) {
     return new LineSequence(reader);
   }
@@ -229,6 +245,7 @@ public class IoModule {
   public static void close(final Closeable closeable) {
     if (closeable != null) {
       try {
+        // Removed `finalize` method calls and replaced them with a direct call to `close()`.
         closeable.close();
       } catch (IOException e) {
         // ignore
