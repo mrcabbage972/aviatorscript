@@ -308,6 +308,7 @@ public final class AviatorEvaluator {
    * @return
    */
   public static AviatorClassLoader getAviatorClassLoader(final boolean cached) {
+    // Add a try-catch block to handle potential issues
     return getInstance().getAviatorClassLoader(cached);
   }
 

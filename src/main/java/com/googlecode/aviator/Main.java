@@ -1,5 +1,6 @@
 package com.googlecode.aviator;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import com.googlecode.aviator.runtime.JavaMethodReflectionFunctionMissing;
@@ -18,6 +19,7 @@ public class Main {
       System.err.println("Usage: java com.googlecode.aviator.Main [file] [args]");
       System.err.println("     : java com.googlecode.aviator.Main -e [script]");
       System.err.println("     : java com.googlecode.aviator.Main -v");
+      System.err.println("     : java com.googlecode.aviator.Main -f [file] [args]");
       System.exit(1);
     }
 
@@ -30,6 +32,21 @@ public class Main {
       System.out.println("AviatorScript " + AviatorEvaluator.VERSION);
       System.exit(0);
     } else if (cmdOrPath.equals("-e") || cmdOrPath.equals("--execute")) {
+      if (args.length < 2) {
+        System.err.println("Usage: java com.googlecode.aviator.Main -e [script]");
+        System.exit(1);
+      }
+      String script = args[1];
+      String[] remainArgs = getRemainArgs(args, 2);
+      Expression exp = AviatorEvaluator.getInstance().compile(script);
+      System.out.println(exp.execute(newEnv(exp, null, remainArgs)));
+    } else if (cmdOrPath.equals("-f") || cmdOrPath.equals("--file")) {
+      if (args.length < 2) {
+        System.err.println(
+            "Usage: java com.googlecode.aviator.Main -f [file] [args]");
+        System.exit(1);
+      }
+      String script = args[1];
       if (args.length < 2) {
         System.err.println("Usage: java com.googlecode.aviator.Main -e [script]");
         System.exit(1);
@@ -59,7 +76,7 @@ public class Main {
   private static String getFileDir(final String abPath) throws IOException {
     return abPath != null
         ? AviatorEvaluator.getInstance().tryFindScriptFile(abPath).getAbsoluteFile().getParent()
-        : null;
+        : ".";
   }
 
   private static String[] getRemainArgs(final String[] args, final int startPos) {

@@ -17,7 +17,6 @@ package com.googlecode.aviator;
 
 import java.util.List;
 import java.util.Map;
-import com.googlecode.aviator.exception.ExpressionRuntimeException;
 import com.googlecode.aviator.lexer.SymbolTable;
 import com.googlecode.aviator.parser.VariableMeta;
 import com.googlecode.aviator.runtime.RuntimeUtils;
@@ -59,7 +58,7 @@ public abstract class ClassExpression extends BaseExpression {
       return result;
     } catch (ExpressionRuntimeException e) {
       throw e;
-    } catch (Throwable t) {
+    } catch (final Throwable t) {
       throw Reflector.sneakyThrow(t);
     }
   }

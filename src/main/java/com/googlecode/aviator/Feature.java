@@ -3,7 +3,6 @@ package com.googlecode.aviator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import com.googlecode.aviator.runtime.function.internal.CatchHandlerFunction;
 import com.googlecode.aviator.runtime.function.internal.IfCallccFunction;
 import com.googlecode.aviator.runtime.function.internal.NewInstanceFunction;

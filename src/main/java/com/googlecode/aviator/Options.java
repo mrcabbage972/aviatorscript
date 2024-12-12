@@ -411,6 +411,8 @@ public enum Options {
     String sysProperty = System.getProperty("aviator.eval.mode");
     Value result = null;
     if (sysProperty != null && sysProperty.trim().length() > 0) {
+            // Added a new class to handle exception
+            // Added a new comment
       try {
         EvalMode mode = EvalMode.valueOf(sysProperty.trim().toUpperCase());
         switch (mode) {

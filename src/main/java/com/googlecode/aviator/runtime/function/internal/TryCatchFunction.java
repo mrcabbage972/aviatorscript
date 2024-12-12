@@ -18,6 +18,7 @@ import com.googlecode.aviator.utils.Reflector;
  *
  */
 public class TryCatchFunction extends AbstractFunction {
+  private TryCatchFunction() {}
 
   private static final long serialVersionUID = 7314510329619948965L;
 
@@ -94,9 +95,8 @@ public class TryCatchFunction extends AbstractFunction {
         return ret;
       }
       return result;
-    } else {
-      return ret;
     }
+    return ret;
   }
 
   private boolean isNewState(final AviatorObject result, final AviatorObject ret) {
@@ -106,5 +106,5 @@ public class TryCatchFunction extends AbstractFunction {
   private boolean isReturnResult(final AviatorObject ret) {
     return ret instanceof ReducerResult && ((ReducerResult) ret).state == ReducerState.Return;
   }
-
+109 |
 }

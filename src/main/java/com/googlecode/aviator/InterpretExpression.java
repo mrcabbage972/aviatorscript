@@ -9,6 +9,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import com.googlecode.aviator.exception.StandardError;
 import com.googlecode.aviator.code.interpreter.IR;
 import com.googlecode.aviator.code.interpreter.InterpretContext;
 import com.googlecode.aviator.code.interpreter.ir.LoadIR;

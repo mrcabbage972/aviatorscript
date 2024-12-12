@@ -56,7 +56,6 @@ import com.googlecode.aviator.code.NoneCodeGenerator;
 import com.googlecode.aviator.code.OptimizeCodeGenerator;
 import com.googlecode.aviator.code.asm.ASMCodeGenerator;
 import com.googlecode.aviator.code.interpreter.InterpretCodeGenerator;
-import com.googlecode.aviator.exception.CompileExpressionErrorException;
 import com.googlecode.aviator.exception.ExpressionNotFoundException;
 import com.googlecode.aviator.exception.ExpressionRuntimeException;
 import com.googlecode.aviator.exception.ExpressionSyntaxErrorException;
@@ -1477,9 +1476,9 @@ public final class AviatorEvaluatorInstance {
       final String sourceFile, final boolean cached) {
     if (expression == null || expression.trim().length() == 0) {
       throw new CompileExpressionErrorException("Blank expression");
-    }
-    if (cacheKey == null || cacheKey.trim().length() == 0) {
-      throw new CompileExpressionErrorException("Blank cacheKey");
+     }
+     if (cacheKey == null || cacheKey.trim().length() == 0) {
+       throw new CompileExpressionErrorException("Blank cacheKey");
     }
 
     if (cached) {
@@ -1512,7 +1511,7 @@ public final class AviatorEvaluatorInstance {
       return getCompiledExpression(cacheKey, existedTask);
 
     } else {
-      return innerCompile(expression, sourceFile, cached);
+     }
     }
 
   }
@@ -1534,7 +1533,7 @@ public final class AviatorEvaluatorInstance {
       return task.get();
     } catch (Throwable t) {
       invalidateCacheByKey(cacheKey);
-      final Throwable cause = t.getCause();
+       final Throwable cause = t.getCause();
       if (cause instanceof ExpressionSyntaxErrorException
           || cause instanceof CompileExpressionErrorException) {
         throw Reflector.sneakyThrow(cause);
@@ -1548,11 +1547,11 @@ public final class AviatorEvaluatorInstance {
       final boolean cached) {
     ExpressionLexer lexer = new ExpressionLexer(this, expression);
     CodeGenerator codeGenerator = newCodeGenerator(sourceFile, cached);
-    ExpressionParser parser = new ExpressionParser(this, lexer, codeGenerator);
-    Expression exp = parser.parse();
-    if (getOptionValue(Options.TRACE_EVAL).bool) {
-      ((BaseExpression) exp).setExpression(expression);
-    }
+     ExpressionParser parser = new ExpressionParser(this, lexer, codeGenerator);
+     Expression exp = parser.parse();
+     if (getOptionValue(Options.TRACE_EVAL).bool) {
+       ((BaseExpression) exp).setExpression(expression);
+     }
     return exp;
   }
 
@@ -1568,7 +1567,7 @@ public final class AviatorEvaluatorInstance {
     AviatorClassLoader classLoader = getAviatorClassLoader(cached);
     return newCodeGenerator(classLoader, sourceFile);
 
-  }
+   }
 
   public EvalCodeGenerator newEvalCodeGenerator(final AviatorClassLoader classLoader,
       final String sourceFile) {
@@ -1581,10 +1580,10 @@ public final class AviatorEvaluatorInstance {
         throw new IllegalArgumentException("Unknown eval mode: " + getEvalMode());
 
     }
-  }
+     }
+   }
 
   public CodeGenerator newCodeGenerator(final AviatorClassLoader classLoader,
-      final String sourceFile) {
     switch (getOptimizeLevel()) {
       case AviatorEvaluator.COMPILE:
         final EvalCodeGenerator codeGen = newEvalCodeGenerator(classLoader, sourceFile);
@@ -1607,7 +1606,7 @@ public final class AviatorEvaluatorInstance {
     return compile(expression, this.cachedExpressionByDefault);
   }
 
-  /**
+   /**
    * Validate a script text whether is a legal aviatorscript text, throw exception if not.
    *
    * @since 5.0.2
@@ -1616,9 +1615,9 @@ public final class AviatorEvaluatorInstance {
   public void validate(final String script) {
     if (script == null || script.trim().length() == 0) {
       throw new CompileExpressionErrorException("Blank script");
-    }
-    ExpressionLexer lexer = new ExpressionLexer(this, script);
-    CodeGenerator codeGenerator = new NoneCodeGenerator();
+     }
+     ExpressionLexer lexer = new ExpressionLexer(this, script);
+     CodeGenerator codeGenerator = new NoneCodeGenerator();
     ExpressionParser parser = new ExpressionParser(this, lexer, codeGenerator);
     parser.parse();
   }
@@ -1734,33 +1733,32 @@ public final class AviatorEvaluatorInstance {
     return execute(expression, (Map<String, Object>) null);
   }
 
-  public void ensureFeatureEnabled(final Feature feature) {
-    if (!getOptionValue(Options.FEATURE_SET).featureSet.contains(feature)) {
-      throw new UnsupportedFeatureException(feature);
-    }
-  }
+   public void ensureFeatureEnabled(final Feature feature) {
+     if (!getOptionValue(Options.FEATURE_SET).featureSet.contains(feature)) {
+       throw new UnsupportedFeatureException(feature);
+     }
+   }
 
   public static class StringSegments {
     public final List<StringSegment> segs;
     public int hintLength;
-
     public StringSegments(final List<StringSegment> segs, final int hintLength) {
       super();
       this.segs = segs;
       this.hintLength = hintLength;
-    }
+     }
 
-    public boolean isEmpty() {
-      return this.segs.isEmpty();
-    }
+     public boolean isEmpty() {
+       return this.segs.isEmpty();
+     }
 
     public String toString(final Map<String, Object> env, final String lexeme) {
-      if (this.segs.isEmpty()) {
-        return lexeme;
-      }
+       if (this.segs.isEmpty()) {
+         return lexeme;
+       }
       StringBuilder sb = new StringBuilder(this.hintLength);
       final int size = this.segs.size();
-      for (int i = 0; i < size; i++) {
+       for (int i = 0; i < size; i++) {
         this.segs.get(i).appendTo(sb, env);
       }
       final String result = sb.toString();
@@ -1769,7 +1767,7 @@ public final class AviatorEvaluatorInstance {
       if (newLen > this.hintLength && newLen < 10 * this.hintLength) {
         this.hintLength = newLen;
       }
-      return result;
+       return result;
     }
   }
 
@@ -1780,7 +1778,7 @@ public final class AviatorEvaluatorInstance {
    * @param lexeme
    * @return
    */
-  public StringSegments compileStringSegments(final String lexeme) {
+   public StringSegments compileStringSegments(final String lexeme) {
     return this.compileStringSegments(lexeme, null, 1);
   }
 
@@ -1793,7 +1791,7 @@ public final class AviatorEvaluatorInstance {
    * @param lineNo;
    * @return
    */
-  public StringSegments compileStringSegments(final String lexeme, final String sourceFile,
+   public StringSegments compileStringSegments(final String lexeme, final String sourceFile,
       final int lineNo) {
     List<StringSegment> segs = new ArrayList<StringSegment>();
     boolean hasInterpolationOrEscaped = false;
@@ -1852,7 +1850,7 @@ public final class AviatorEvaluatorInstance {
                   segs.add(new LiteralSegment("null"));
                 } else {
                   segs.add(new VarSegment(
-                      parser.getSymbolTable().reserve(previousToken.getLexeme()).getLexeme()));
+                       parser.getSymbolTable().reserve(previousToken.getLexeme()).getLexeme()));
                 }
               } else {
                 segs.add(new ExpressionSegment(exp));
@@ -1861,12 +1859,12 @@ public final class AviatorEvaluatorInstance {
               lastInterPos = i;
             } catch (Throwable t) {
               throw new CompileExpressionErrorException(
-                  "Fail to compile string interpolation: " + lexeme, t);
+                   "Fail to compile string interpolation: " + lexeme, t);
             }
-            // End of interpolation
-          }
-          // End of # is not escaped.
-        }
+              // End of interpolation
+             }
+            // End of # is not escaped.
+           }
       }
 
       if (ch == StringCharacterIterator.DONE) {
@@ -1874,7 +1872,7 @@ public final class AviatorEvaluatorInstance {
           final String segStr = lexeme.substring(lastInterPos, i - 1);
           segs.add(new LiteralSegment(segStr));
         }
-        break;
+         }
       }
 
       prev = ch;
@@ -1882,10 +1880,10 @@ public final class AviatorEvaluatorInstance {
       i++;
     }
     if (hasInterpolationOrEscaped) {
-      return new StringSegments(segs, lexeme.length() * 2 / 3);
+       return new StringSegments(segs, lexeme.length() * 2 / 3);
     } else {
-      return new StringSegments(Collections.<StringSegment>emptyList(), 0);
-    }
+       return new StringSegments(Collections.<StringSegment>emptyList(), 0);
+     }
   }
 
 
@@ -1896,9 +1894,9 @@ public final class AviatorEvaluatorInstance {
    * @param clazz the class for check
    * @return the class for check
    */
-  public Class<?> checkIfClassIsAllowed(final boolean checkIfAllow, final Class<?> clazz) {
-    if (checkIfAllow) {
-      Set<Class<?>> allowedList = this.getOptionValue(Options.ALLOWED_CLASS_SET).classes;
+   public Class<?> checkIfClassIsAllowed(final boolean checkIfAllow, final Class<?> clazz) {
+     if (checkIfAllow) {
+       Set<Class<?>> allowedList = this.getOptionValue(Options.ALLOWED_CLASS_SET).classes;
       if (allowedList != null) {
         // Null list means allowing all classes
         if (!allowedList.contains(clazz)) {
@@ -1908,7 +1906,7 @@ public final class AviatorEvaluatorInstance {
       }
       Set<Class<?>> assignableList =
           this.getOptionValue(Options.ASSIGNABLE_ALLOWED_CLASS_SET).classes;
-      if (assignableList != null) {
+       if (assignableList != null) {
         for (Class<?> aClass : assignableList) {
           if (aClass.isAssignableFrom(clazz)) {
             return clazz;
@@ -1918,6 +1916,6 @@ public final class AviatorEvaluatorInstance {
             "`" + clazz + "` is not in allowed class set, check Options.ALLOWED_CLASS_SET");
       }
     }
-    return clazz;
+     }
   }
 }

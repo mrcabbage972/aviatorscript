@@ -9,6 +9,7 @@ import com.googlecode.aviator.AviatorEvaluatorInstance;
 import com.googlecode.aviator.code.asm.ASMCodeGenerator.MethodMetaData;
 import com.googlecode.aviator.lexer.SymbolTable;
 import com.googlecode.aviator.parser.AviatorClassLoader;
+import com.googlecode.aviator.exception.StandardError;
 import com.googlecode.aviator.parser.Parser;
 import com.googlecode.aviator.parser.VariableMeta;
 import com.googlecode.aviator.runtime.FunctionArgument;

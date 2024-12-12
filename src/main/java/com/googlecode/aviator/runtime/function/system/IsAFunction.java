@@ -37,6 +37,7 @@ public class IsAFunction extends AbstractFunction {
   private static final long serialVersionUID = -7543895978170666671L;
 
   private IsAFunction() {}
+  private IsAFunction() {}
 
   public static final IsAFunction INSTANCE = new IsAFunction();
 

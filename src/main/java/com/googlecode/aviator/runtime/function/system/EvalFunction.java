@@ -17,6 +17,7 @@ import com.googlecode.aviator.runtime.type.AviatorRuntimeJavaType;
  */
 public class EvalFunction extends AbstractFunction {
 
+  public static final EvalFunction INSTANCE = new EvalFunction();
   private static final long serialVersionUID = 541446001268353015L;
 
   public static final EvalFunction INSTANCE = new EvalFunction();

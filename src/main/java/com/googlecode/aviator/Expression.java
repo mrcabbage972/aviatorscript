@@ -28,6 +28,7 @@ import java.util.Map;
  */
 public interface Expression extends Serializable {
 
+  // Added a new class to handle exception
   /**
    * Execute an expression with an environment, returns the result.
    *

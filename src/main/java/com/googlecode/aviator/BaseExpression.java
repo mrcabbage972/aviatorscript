@@ -437,7 +437,7 @@ public abstract class BaseExpression implements Expression {
     this.lambdaBootstraps = lambdaBootstraps;
   }
 
-  public LambdaFunction newLambda(final Env env, final String name) {
+  public LambdaFunction newLambda(final Env env, final String name)  {
     LambdaFunctionBootstrap bootstrap = this.lambdaBootstraps.get(name);
     if (bootstrap == null) {
       throw new ExpressionNotFoundException("Lambda " + name + " not found");

@@ -2144,7 +2144,7 @@ public class ExpressionParser implements Parser {
     }
   }
 
-  private int getCGTimes;
+  private AtomicInteger getCGTimes = new AtomicInteger(0);
 
   private final CodeGenerator getCodeGeneratorWithTimes() {
     this.getCGTimes++;

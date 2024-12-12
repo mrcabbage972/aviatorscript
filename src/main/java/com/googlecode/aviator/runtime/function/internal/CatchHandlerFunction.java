@@ -19,7 +19,7 @@ public class CatchHandlerFunction extends AbstractVariadicFunction {
 
   private CatchHandlerFunction() {
 
-  }
+   }
 
   public static final CatchHandlerFunction INSTANCE = new CatchHandlerFunction();
 

@@ -24,7 +24,6 @@ import com.googlecode.aviator.parser.VariableMeta;
 import com.googlecode.aviator.runtime.RuntimeUtils;
 
 
-/**
  * A literal expression with a fixed result
  *
  * @author dennis
@@ -45,7 +44,7 @@ public class LiteralExpression extends BaseExpression {
   public Object executeDirectly(final Map<String, Object> env) {
     if (RuntimeUtils.isTracedEval(env)) {
       RuntimeUtils.printlnTrace(env, "Tracing: " + getExpression());
-      RuntimeUtils.printlnTrace(env, "Result : " + getExpression());
+      RuntimeUtils.printlnTrace(env, "Result : " + this.result);
     }
     return this.result;
   }
