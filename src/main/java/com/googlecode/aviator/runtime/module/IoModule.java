@@ -235,4 +235,9 @@ public class IoModule {
       }
     }
   }
+
+  @Override
+  protected void finalize() throws Throwable {
+    // No-op
+  }
 }

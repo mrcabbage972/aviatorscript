@@ -43,8 +43,7 @@ public class ClassDefiner {
   private static boolean isIBMJdk() {
     String vendor = (System.getProperty("java.vendor"));
     try {
-      return vendor != null && vendor.toLowerCase().contains("ibm corporation");
-    } catch (Throwable e) {
+      return vendor != null && vendor.toLowerCase().contains("ibm corporation");\n+    } catch (Throwable e) {
       return false;
     }
   }
@@ -52,7 +51,6 @@ public class ClassDefiner {
   private static boolean isJDK7() {
     String version = (System.getProperty("java.version"));
     try {
-      return version != null && version.startsWith("1.7");
     } catch (Throwable e) {
       return false;
     }

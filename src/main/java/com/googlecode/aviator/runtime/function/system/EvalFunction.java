@@ -27,11 +27,11 @@ public class EvalFunction extends AbstractFunction {
   }
 
   @Override
-  public AviatorObject call(final Map<String, Object> env, final AviatorObject arg1) {
+      final AviatorObject arg2) throws ClassCastException {
     AviatorEvaluatorInstance instance = RuntimeUtils.getInstance(env);
     String script = FunctionUtils.getStringValue(arg1, env);
     return AviatorRuntimeJavaType
-        .valueOf(instance.execute(script, env, instance.isCachedExpressionByDefault()));
+        .valueOf(instance.execute(script, (Map<String, Object>) arg2.getValue(env), instance.isCachedExpressionByDefault()));
   }
 
   @SuppressWarnings("unchecked")
@@ -39,9 +39,7 @@ public class EvalFunction extends AbstractFunction {
   public AviatorObject call(final Map<String, Object> env, final AviatorObject arg1,
       final AviatorObject arg2) {
     AviatorEvaluatorInstance instance = RuntimeUtils.getInstance(env);
-    String script = FunctionUtils.getStringValue(arg1, env);
-    return AviatorRuntimeJavaType.valueOf(instance.execute(script,
-        (Map<String, Object>) arg2.getValue(env), instance.isCachedExpressionByDefault()));
+    return AviatorRuntimeJavaType.valueOf(instance.execute(FunctionUtils.getStringValue(arg1, env), (Map<String, Object>) arg2.getValue(env), instance.isCachedExpressionByDefault()));
   }
 
 
@@ -50,8 +48,6 @@ public class EvalFunction extends AbstractFunction {
   public AviatorObject call(final Map<String, Object> env, final AviatorObject arg1,
       final AviatorObject arg2, final AviatorObject arg3) {
     AviatorEvaluatorInstance instance = RuntimeUtils.getInstance(env);
-    String script = FunctionUtils.getStringValue(arg1, env);
-    return AviatorRuntimeJavaType.valueOf(instance.execute(script,
-        (Map<String, Object>) arg2.getValue(env), FunctionUtils.getBooleanValue(arg3, env)));
+    return AviatorRuntimeJavaType.valueOf(instance.execute(FunctionUtils.getStringValue(arg1, env), (Map<String, Object>) arg2.getValue(env), FunctionUtils.getBooleanValue(arg3, env)));
   }
 }

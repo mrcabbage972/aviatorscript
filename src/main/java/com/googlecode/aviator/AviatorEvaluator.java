@@ -327,7 +327,7 @@ public final class AviatorEvaluator {
    */
   public static List<String> addStaticFunctions(final String namespace, final Class<?> clazz)
       throws IllegalAccessException, NoSuchMethodException {
-    return getInstance().addStaticFunctions(namespace, clazz);
+    return addStaticFunctions(namespace, clazz);
   }
 
   /**
@@ -336,7 +336,7 @@ public final class AviatorEvaluator {
    */
   public static List<String> importFunctions(final Class<?> clazz)
       throws IllegalAccessException, NoSuchMethodException {
-    return getInstance().importFunctions(clazz);
+    return importFunctions(clazz);
   }
 
   /**

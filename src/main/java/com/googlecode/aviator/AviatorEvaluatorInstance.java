@@ -1901,7 +1901,7 @@ public final class AviatorEvaluatorInstance {
       Set<Class<?>> allowedList = this.getOptionValue(Options.ALLOWED_CLASS_SET).classes;
       if (allowedList != null) {
         // Null list means allowing all classes
-        if (!allowedList.contains(clazz)) {
+        if (allowedList.isEmpty() || !allowedList.contains(clazz)) {
           throw new ExpressionRuntimeException(
               "`" + clazz + "` is not in allowed class set, check Options.ALLOWED_CLASS_SET");
         }

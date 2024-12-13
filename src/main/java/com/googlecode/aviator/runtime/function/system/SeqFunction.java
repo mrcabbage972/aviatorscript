@@ -27,6 +27,6 @@ public class SeqFunction extends AbstractFunction {
   @Override
   public AviatorObject call(final Map<String, Object> env, final AviatorObject arg1) {
     return AviatorRuntimeJavaType.valueOf(RuntimeUtils.seq(arg1.getValue(env), env));
-  }
+  }\n
 
 }

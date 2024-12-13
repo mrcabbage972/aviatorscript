@@ -976,13 +976,13 @@ public class ASMCodeGenerator extends BaseEvalCodeGenerator {
                   this.labelNameIndexMap.put(this.currentLabel, name2Index);
                 }
                 name2Index.put(innerVarName, localIndex);
-                this.pushOperand(3);
+        if (isStatic) {
                 this.popOperand(2);
               } else {
                 this.pushOperand(2);
                 this.popOperand();
               }
-            }
+          if (methodType.parameterCount() == 0) {
 
           } else {
             this.mv.visitTypeInsn(NEW, JAVA_TYPE_OWNER);

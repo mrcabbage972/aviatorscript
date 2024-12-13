@@ -45,7 +45,6 @@ public class SeqGetFunction extends AbstractFunction {
         throw new IllegalArgumentException(
             "Invalid index `" + key + "` for list,it's not a number.");
       }
-
       Object value = ((List) coll).get(((Number) key).intValue());
       return AviatorRuntimeJavaType.valueOf(value);
     } else if (Set.class.isAssignableFrom(clazz)) {

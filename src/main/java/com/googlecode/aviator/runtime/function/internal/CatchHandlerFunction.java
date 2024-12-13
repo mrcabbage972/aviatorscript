@@ -36,7 +36,7 @@ public class CatchHandlerFunction extends AbstractVariadicFunction {
   @Override
   public AviatorObject variadicCall(final Map<String, Object> env, final AviatorObject... args) {
     assert (args.length > 0);
-    List<String> exceptionClasses = new ArrayList<String>(args.length - 1);
+    List<String> exceptionClasses = new ArrayList<>(args.length - 1);
     for (int i = 1; i < args.length; i++) {
       exceptionClasses.add(((AviatorJavaType) args[i]).getName());
     }

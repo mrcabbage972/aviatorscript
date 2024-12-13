@@ -44,7 +44,7 @@ public class SeqFilterFunction extends AbstractFunction {
   @Override
   @SuppressWarnings({"unchecked", "rawtypes"})
   public AviatorObject call(final Map<String, Object> env, final AviatorObject arg1,
-      final AviatorObject arg2) {
+  final AviatorObject arg2) {
     Object first = arg1.getValue(env);
     AviatorFunction fun = FunctionUtils.getFunction(arg2, env, 1);
     if (fun == null) {
@@ -54,7 +54,6 @@ public class SeqFilterFunction extends AbstractFunction {
     if (first == null) {
       return AviatorNil.NIL;
     }
-
     Sequence seq = RuntimeUtils.seq(first, env);
     Collector collector = seq.newCollector(0);
 
