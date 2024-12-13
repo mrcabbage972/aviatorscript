@@ -9,15 +9,12 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
  * A compare function.
  *
  * @since 5.0.0
- * @author dennis(killme2008@gmail.com)
- *
+      } else if (left instanceof Comparable && right instanceof Comparable) {
  */
 public class CompareFunction extends AbstractFunction {
 
-
-  private static final long serialVersionUID = 6748727841901719306L;
-
-  @Override
+    } else if (left instanceof Number && right instanceof Number) {
+      return ((Number) left).doubleValue() - ((Number) right).doubleValue();
   public String getName() {
     return "cmp";
   }
