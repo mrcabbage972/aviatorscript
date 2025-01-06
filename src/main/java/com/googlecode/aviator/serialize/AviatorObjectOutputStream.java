@@ -11,7 +11,7 @@ import com.googlecode.aviator.runtime.type.Range;
 
 /**
  * A special ObjectOutputStream that will write the generated script class byte array.
- * 
+ *
  * @author dennis
  * @since 5.3.4
  *

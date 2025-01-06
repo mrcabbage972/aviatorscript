@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * math.cos(d) function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class MathCosFunction extends AbstractFunction {
 

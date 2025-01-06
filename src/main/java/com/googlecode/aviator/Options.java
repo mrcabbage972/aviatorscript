@@ -123,7 +123,7 @@ public enum Options {
   SERIALIZABLE,
 
   /**
-   * 
+   *
    * The expression execution timeout value in milliseconds. If the execution time exceeds this
    * value, it will throw a {@link com.googlecode.aviator.exception.TimeoutException}. A value of
    * zero or less indicates no timeout limitation, the default value is zero (no limitation). <br/>
@@ -134,12 +134,12 @@ public enum Options {
    * <li>Jumping in branches, such as loop and conditional clauses etc.</li>
    * <li>Function invocation</li>
    * </ul>
-   * 
+   *
    * So if the expression doesn't contains these clauses or trapped into a function invocation, the
    * behavior may be not expected. Try its best, but no promises.
-   * 
+   *
    * @since 5.4.2
-   * 
+   *
    */
   EVAL_TIMEOUT_MS;
 

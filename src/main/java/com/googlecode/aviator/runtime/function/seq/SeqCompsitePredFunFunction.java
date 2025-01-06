@@ -12,7 +12,7 @@ import com.googlecode.aviator.runtime.type.AviatorRuntimeJavaType;
 
 /**
  * Composite predicate function with && or ||
- * 
+ *
  * @author dennis
  *
  */

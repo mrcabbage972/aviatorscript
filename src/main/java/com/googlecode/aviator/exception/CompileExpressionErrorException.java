@@ -17,9 +17,9 @@ package com.googlecode.aviator.exception;
 
 /**
  * Compile expression exception
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class CompileExpressionErrorException extends ExpressionRuntimeException {
 

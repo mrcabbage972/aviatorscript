@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * compile-time types
- * 
+ *
  * @author dennis(killme2008@gmail.com)
  *
  */

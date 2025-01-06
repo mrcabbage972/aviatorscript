@@ -17,9 +17,9 @@ package com.googlecode.aviator.exception;
 
 /**
  * Expression syntax exception
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class ExpressionSyntaxErrorException extends RuntimeException {
   static final long serialVersionUID = -1;

@@ -24,9 +24,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * string.endsWith(s1,s2) function
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class StringEndsWithFunction extends AbstractFunction {
 

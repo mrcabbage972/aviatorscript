@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * A string segment.
- * 
+ *
  * @author dennis(killme2008@gmail.com)
  *
  */

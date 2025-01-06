@@ -23,9 +23,9 @@ import com.googlecode.aviator.runtime.type.AviatorObject;
 
 /**
  * now() function to invoke System.currentTimeMillis()
- * 
+ *
  * @author dennis
- * 
+ *
  */
 public class NowFunction extends AbstractFunction {
 
