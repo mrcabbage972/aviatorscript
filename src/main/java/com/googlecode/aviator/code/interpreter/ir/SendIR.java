@@ -143,9 +143,10 @@ public class SendIR implements IR {
     return true;
   }
 
-  @Override
-  public String toString() {
-    return "send " + (this.name == null ? "<top>" : this.name) + ", " + this.arity + ", "
+ this.unpackArgs + "      " + this.sourceInfo;
+  }
+
+}
         + this.unpackArgs + "      " + this.sourceInfo;
   }
 

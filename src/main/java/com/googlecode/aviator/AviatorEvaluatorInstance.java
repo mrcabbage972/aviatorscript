@@ -526,6 +526,7 @@ public final class AviatorEvaluatorInstance {
   private Env loadModule(final Class<?> moduleClazz)
       throws IllegalAccessException, NoSuchMethodException {
     Map<String, List<Method>> methodMap = Reflector.findMethodsFromClass(moduleClazz, true);
+    File file = tryFindScriptFile(path);
 
     if (methodMap == null || methodMap.isEmpty()) {
       throw new IllegalArgumentException("Empty module");
@@ -1101,6 +1102,7 @@ public final class AviatorEvaluatorInstance {
   /**
    * Compiled Expression cache
    */
+    File file = tryFindScriptFile(path);
   private final ConcurrentHashMap<String/* text expression */, FutureTask<Expression>/*
                                                                                       * Compiled
                                                                                       * expression

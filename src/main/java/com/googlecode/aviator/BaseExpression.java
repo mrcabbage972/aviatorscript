@@ -165,12 +165,11 @@ public abstract class BaseExpression implements Expression {
     Set<String> parentVars = new HashSet<>(this.vars.size());
     Set<String> definedVars = new HashSet<>();
 
-    for (VariableMeta m : this.vars) {
-      final String name = m.getName();
-      String[] tmps = Constants.SPLIT_PAT.split(name);
-      if (!m.isInit() && m.getType() != CompileTypes.Class && !definedVars.contains(tmps[0])
-          && !definedVars.contains(name) && m.getFirstIndex() >= 0) {
-        fullNames.put(name, m);
+     *     for (VariableMeta meta : this.vars) {
+     *       final String name = meta.getName();
+     *       String[] tmps = Constants.SPLIT_PAT.split(name);
+     *       if (!meta.isInit() && meta.getType() != CompileTypes.Class && !definedVars.contains(tmps[0])
+     *           && !definedVars.contains(name) && meta.getFirstIndex() >= 0) {
       } else if (m.getFirstIndex() >= 0) {
         // It's defined in current scope
         definedVars.add(name);
@@ -179,10 +178,22 @@ public abstract class BaseExpression implements Expression {
       parentVars.add(name);
     }
 
-    afterPopulateFullNames(fullNames, parentVars);
-    return fullNames;
-  }
-
+     *     afterPopulateFullNames(fullNames, parentVars);
+     *     return fullNames;
+     *   }
+     *
+     *   public StringSegments getStringSegements(final String lexeme, final int lineNo) {
+     *     FutureTask<StringSegments> task = this.stringSegs.get(lexeme);
+     *     if (task == null) {
+     *       task = new FutureTask<>(new Callable<StringSegments>() {
+     *         @Override
+     *         public StringSegments call() throws Exception {
+     *           final StringSegments compiledSegs = BaseExpression.this.instance
+     *               .compileStringSegments(lexeme, BaseExpression.this.sourceFile, lineNo);
+     *           return compiledSegs;
+     *         }
+     *       });
+     *
   public StringSegments getStringSegements(final String lexeme, final int lineNo) {
     FutureTask<StringSegments> task = this.stringSegs.get(lexeme);
     if (task == null) {
@@ -387,18 +398,18 @@ public abstract class BaseExpression implements Expression {
     populateFilteredFuncNames();
 
     return filteredFunctionNames;
-  }
-
+   *   }
+   *
   private void populateFilteredFuncNames() {
-    if (this.filteredFunctionNames == null) {
-      Set<String> validNames = new HashSet<String>(this.functionNames.size());
-
-      for (String funcName : this.functionNames) {
-        // Remove internal functions
-        if (!funcName.startsWith("__") && !funcName.equals("with_meta")) {
-          validNames.add(funcName);
-        }
-      }
+   *     if (this.filteredFunctionNames == null) {
+   *       Set<String> validNames = new HashSet<>(this.functionNames.size());
+   *
+   *       for (String funcName : this.functionNames) {
+   *         // Remove internal functions
+   *         if (!funcName.startsWith("__") && !funcName.equals("with_meta")) {
+   *           validNames.add(funcName);
+   *         }
+   *       }
 
       Set<String> definedFuncs = new HashSet<String>();
       // Find all runtime defined functions

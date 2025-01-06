@@ -18,7 +18,7 @@ import com.googlecode.aviator.runtime.type.AviatorType;
 public class CustomDivideExample {
   public static void main(final String[] args) {
     AviatorEvaluator.getInstance().addOpFunction(OperatorType.DIV, new AbstractFunction() {
-
+      private static final String BENCHMARK_NAME = "CustomDivideExample";
 
 
       @Override

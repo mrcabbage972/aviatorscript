@@ -128,7 +128,7 @@ public final class AviatorEvaluator {
         (args != null && args.length <= 16) ? new ArrayHashMap<String, Object>()
             : new HashMap<String, Object>(args != null ? args.length : 16);
 
-    if (args != null) {
+    if (args != null && args.length > 0) {
       for (int i = 0; i < args.length; i += 2) {
         String key = (String) args[i];
         env.put(key, args[i + 1]);

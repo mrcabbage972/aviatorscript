@@ -18,7 +18,8 @@ import com.googlecode.aviator.Options;
 public class SerializeExample {
 
   public static void main(String[] args) throws Exception {
-    // Enable expression serialization feature
+    // Enable expression serialization feature\n     // This feature is experimental, and serialization format could change in
+    // future releases.
     AviatorEvaluatorInstance engine = AviatorEvaluator.getInstance();
     engine.setOption(Options.SERIALIZABLE, true);
 

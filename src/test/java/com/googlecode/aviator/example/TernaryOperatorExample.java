@@ -6,6 +6,7 @@ import com.googlecode.aviator.AviatorEvaluator;
 
 public class TernaryOperatorExample {
   public static void main(final String[] args) {
+    private static final String BENCHMARK_NAME = "TernaryOperatorExample";
     if (args.length < 1) {
       System.err.println("Usage: java TernaryOperatorExample [number]");
       System.exit(1);

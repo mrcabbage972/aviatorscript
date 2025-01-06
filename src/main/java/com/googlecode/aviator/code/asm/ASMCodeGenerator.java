@@ -90,6 +90,7 @@ import com.googlecode.aviator.utils.TypeUtils;
  *
  */
 public class ASMCodeGenerator extends BaseEvalCodeGenerator {
+  private static final String BENCHMARK_NAME = "ASMCodeGenerator";
 
   private static final String RUNTIME_UTILS = "com/googlecode/aviator/runtime/RuntimeUtils";
   private static final String OBJECT_DESC = "Lcom/googlecode/aviator/runtime/type/AviatorObject;";
@@ -157,6 +158,11 @@ public class ASMCodeGenerator extends BaseEvalCodeGenerator {
     // }
     visitClass();
   }
+
+  /**
+   * Returns the compiled class's name (as a string).
+   * @return the compiled class's name (as a string).
+   */
 
   LambdaGenerator getLambdaGenerator() {
     return this.lambdaGenerator;

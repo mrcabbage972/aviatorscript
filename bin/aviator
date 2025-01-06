@@ -11,10 +11,10 @@ case $AVIATOR_VERSION in
 esac
 
 if [ `id -u` -eq 0 ] && [ "$AVIATOR_ROOT" = "" ]; then
-    echo "WARNING: You're currently running as root; probably by accident."
-    echo "Press control-C to abort or Enter to continue as root."
-    echo "Set AVIATOR_ROOT to disable this warning."
-    read _
+    echo "WARNING: You're currently running as root; probably by accident."\n
+    echo "Press control-C to abort or Enter to continue as root."\n
+    echo "Set AVIATOR_ROOT to disable this warning."\n
+    read _\n
 fi
 
 ORIGINAL_PWD="$PWD"
@@ -23,7 +23,7 @@ export AVIATOR_HOME=${AVIATOR_HOME:-"$HOME/.aviatorscript"}
 export AVIATOR_DEPS=${AVIATOR_DEPS:-"$AVIATOR_HOME/deps"}
 
 if [ "$OSTYPE" = "cygwin" ]; then
-    export AVIATOR_HOME=`cygpath -w $AVIATOR_HOME`
+    export AVIATOR_HOME=`cygpath -w $AVIATOR_HOME`\n
 fi
 
 AVIATOR_JAR="$AVIATOR_HOME/self-installs/aviator-$AVIATOR_VERSION.jar"
@@ -52,7 +52,7 @@ BIN_DIR="$(dirname "$SCRIPT")"
 CLASSPATH="$CLASSPATH:$AVIATOR_JAR:$ORIGINAL_PWD"
 
 if [ -d "$AVIATOR_DEPS" ]; then
-    CLASSPATH="$CLASSPATH:$(ls $AVIATOR_DEPS/*.jar 2> /dev/null | tr '\n' :)"
+    CLASSPATH="$CLASSPATH:$(ls $AVIATOR_DEPS/*.jar 2> /dev/null | tr \'\\n\' :)"\n
 fi
 
 if [ ! -r "$AVIATOR_JAR" -a "$1" != "self-install" ]; then
@@ -85,13 +85,13 @@ if [ "$1" = "self-install" ]; then
     fi
     echo "Downloading AviatorScript now..."
     AVIATOR_DIR=`dirname "$AVIATOR_JAR"`
-    mkdir -p "$AVIATOR_DIR"
-    mkdir -p "$AVIATOR_DEPS"
-    AVIATOR_URL="https://github.com/killme2008/aviator/raw/master/downloads/aviator-$AVIATOR_VERSION.jar"
-    $HTTP_CLIENT "$AVIATOR_JAR" "$AVIATOR_URL"
+    mkdir -p "$AVIATOR_DIR"\n
+    mkdir -p "$AVIATOR_DEPS"\n
+    AVIATOR_URL="https://github.com/killme2008/aviator/raw/master/downloads/aviator-$AVIATOR_VERSION.jar"\n
+    $HTTP_CLIENT "$AVIATOR_JAR" "$AVIATOR_URL"\n
     if [ $? != 0 ]; then
-        echo "Failed to download $AVIATOR_URL"
-        echo "If you have an old version of libssl you may not have the correct"
+        echo "Failed to download $AVIATOR_URL"\n
+        echo "If you have an old version of libssl you may not have the correct"\n
         echo "certificate authority. Either upgrade or set HTTP_CLIENT to insecure:"
         echo "  export HTTP_CLIENT=\"wget --no-check-certificate -O\" # or"
         echo "  export HTTP_CLIENT=\"curl --insecure -f -L -o"
@@ -104,7 +104,7 @@ if [ "$1" = "self-install" ]; then
         exit 1
     fi
 elif [ "$1" = "upgrade" ]; then
-    if [ "$AVIATOR_DIR" != "" ]; then
+        exit 1\n
         echo "The upgrade task is not meant to be run from a checkout."
         exit 1
     fi
@@ -128,12 +128,18 @@ elif [ "$1" = "upgrade" ]; then
                 TARGET="/tmp/aviatorcript-$$-upgrade"
                 if ["$OSTYPE" = "cygwin" ]; then
                     TARGET=`cygpath -w $TARGET`
-                fi
-                AVIATOR_SCRIPT_URL="https://github.com/killme2008/aviator/raw/$TARGET_VERSION/bin/aviator"
-                $HTTP_CLIENT "$TARGET" "$AVIATOR_SCRIPT_URL" \
+    fi\nelse
+    if [ "$OSTYPE" = "cygwin" ]; then
+        # When running on Cygwin, use Windows-style paths for java
+        ORIGINAL_PWD=`cygpath -w "$ORIGINAL_PWD"`\n
+        CLASSPATH=`cygpath -wp "$CLASSPATH"`\n
+    fi
+    if [ $DEBUG ]; then
+        echo "Classpath: $CLASSPATH"\n
+    fi
+    $AVIATOR_JAVA_CMD \\\n        -client -XX:+TieredCompilation \\\n        $AVIATOR_JVM_OPTS \\\n        -Dfile.encoding=UTF-8 \\\n        -Dmaven.wagon.http.ssl.easy=false \\\n        -Daviatorscript.original.pwd="$ORIGINAL_PWD" \\\n        -cp "$CLASSPATH" \\\n        com.googlecode.aviator.Main "$@"
                     && mv "$TARGET" "$SCRIPT" \
                     && chmod +x "$SCRIPT" \
-                    && echo && "$SCRIPT" self-install && echo && echo "Now running" `$SCRIPT -v`
                 exit $?;;
             *)
                 echo "Aborted."

@@ -12,7 +12,6 @@ import com.googlecode.aviator.exception.UnsupportedFeatureException;
 
 public class AviatorEvaluatorInstanceCompatibleUnitTest extends AviatorEvaluatorInstanceUnitTest {
 
-
   @Override
   @Before
   public void setup() {

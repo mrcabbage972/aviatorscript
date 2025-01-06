@@ -50,7 +50,7 @@ public class VariableExample {
           + Arrays.toString(this.bars) + ", context=" + this.context + "]";
     }
 
-
+    public Foo(int i, float f, Date date) {
     public Foo(final int i, final float f, final Date date) {
       super();
       this.i = i;

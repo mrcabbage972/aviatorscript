@@ -305,6 +305,7 @@ public class InterpretCodeGenerator extends BaseEvalCodeGenerator {
   @Override
   public void onNeq(final Token<?> lookahead) {
     emit(OperatorIR.NE);
+    this.checkExecutionTimeout();
   }
 
   @Override
@@ -320,6 +321,7 @@ public class InterpretCodeGenerator extends BaseEvalCodeGenerator {
   @Override
   public void onGt(final Token<?> lookahead) {
     emit(OperatorIR.GT);
+    this.checkExecutionTimeout();
   }
 
   @Override

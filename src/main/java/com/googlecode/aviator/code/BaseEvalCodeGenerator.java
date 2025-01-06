@@ -15,7 +15,6 @@ import com.googlecode.aviator.runtime.FunctionArgument;
 import com.googlecode.aviator.runtime.LambdaFunctionBootstrap;
 import com.googlecode.aviator.utils.Env;
 
-public abstract class BaseEvalCodeGenerator implements EvalCodeGenerator {
 
   protected final AviatorEvaluatorInstance instance;
   protected Map<String, VariableMeta> variables = Collections.emptyMap();
