@@ -67,7 +67,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.ibeetl</groupId>
       <artifactId>beetl</artifactId>
       <version>3.19.0.RELEASE</version>
       <scope>test</scope>
